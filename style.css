@@ -1,0 +1,158 @@
+:root {
+    --bg: #121212;
+    --card: #1e1e1e;
+    --primary: #bb86fc;
+    --accent: #03dac6;
+    --empty: #333;
+    --filled: #666;
+    --sol-1: #ffeb3b;
+    --sol-2: #ff5722;
+    --sol-3: #2196f3;
+}
+
+body {
+    background-color: var(--bg);
+    color: white;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.app-container {
+    text-align: center;
+    max-width: 400px;
+}
+
+.grid-8x8 {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 4px;
+    background: #000;
+    padding: 8px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.cell {
+    aspect-ratio: 1;
+    background: var(--empty);
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.cell.active { background: var(--filled); }
+.cell.s0 { background: var(--sol-1); border: 2px solid white; box-sizing: border-box; }
+.cell.s1 { background: var(--sol-2); border: 2px solid white; box-sizing: border-box; }
+.cell.s2 { background: var(--sol-3); border: 2px solid white; box-sizing: border-box; }
+
+.action-bar { margin-bottom: 20px; }
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.btn-primary { background: var(--primary); color: black; font-weight: bold; }
+.btn-secondary { background: #444; color: white; }
+
+.slots-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.slot {
+    flex: 1;
+    height: 100px;
+    background: var(--card);
+    border: 2px dashed #444;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.slot span { font-size: 0.7em; margin-bottom: 5px; color: #aaa; }
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    padding: 20px;
+    z-index: 10;
+}
+
+.modal-content {
+    background: var(--card);
+    padding: 20px;
+    border-radius: 12px;
+    max-height: 85vh; /* Membatasi tinggi maksimum modal */
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content h3 {
+    margin-top: 0;
+}
+
+/* PERBAIKAN SCROLL ADA DI SINI */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    overflow-y: auto; /* Mengaktifkan scroll vertikal */
+    padding-right: 10px; /* Memberi ruang agar scrollbar tidak menimpa blok */
+    margin-bottom: 20px;
+}
+
+/* Mengubah tampilan scrollbar agar lebih elegan (khusus Chrome/Safari/Edge) */
+.gallery::-webkit-scrollbar {
+    width: 8px;
+}
+.gallery::-webkit-scrollbar-track {
+    background: #222;
+    border-radius: 4px;
+}
+.gallery::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 4px;
+}
+
+.gallery-item {
+    background: #222;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60px;
+}
+
+.gallery-item:hover { background: #333; }
+
+.mini-grid {
+    display: grid;
+    gap: 0px; 
+}
+
+.m-cell { 
+    width: 12px; 
+    height: 12px; 
+    background: transparent; 
+}
+
+.m-cell.on { 
+    background: var(--accent); 
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.2); 
+}
+
+#message { margin-top: 15px; font-weight: bold; color: var(--accent); }

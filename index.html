@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solver Block Blast</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <h1>Block Blast Solver</h1>
+        <p>1. Klik papan untuk tanda kotak isi. 2. Pilih 3 blok. 3. Klik Cari Solusi.</p>
+
+        <div id="game-board" class="grid-8x8"></div>
+
+        <div class="action-bar">
+            <button id="solve-btn" class="btn-primary">Cari Solusi</button>
+            <button id="reset-btn" class="btn-secondary">Reset Papan</button>
+            <button id="replay-btn" class="btn-primary" style="display: none; background-color: #ff9800;">Replay
+                Animasi</button>
+        </div>
+
+        <div class="slots-container">
+            <div class="slot" id="slot-0" onclick="openPicker(0)">
+                <span>Blok 1</span>
+                <div class="preview" id="preview-0"></div>
+            </div>
+            <div class="slot" id="slot-1" onclick="openPicker(1)">
+                <span>Blok 2</span>
+                <div class="preview" id="preview-1"></div>
+            </div>
+            <div class="slot" id="slot-2" onclick="openPicker(2)">
+                <span>Blok 3</span>
+                <div class="preview" id="preview-2"></div>
+            </div>
+        </div>
+
+        <div id="message"></div>
+    </div>
+
+    <div id="picker-modal" class="modal">
+        <div class="modal-content">
+            <h3>Pilih Bentuk Blok</h3>
+            <div id="shape-gallery" class="gallery"></div>
+            <button onclick="closePicker()" class="btn-close">Batal</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
